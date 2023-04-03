@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class=" mb-2">
+    <input appFocus formControlName="title" type="text" class="border p-2 rounded w-full">
+    <p class="text-red-500 font-medium h-5">{{title.errors? "The name is less than 5 characters" : ""}}</p>
+  </div>
+  <div class="">
+    <textarea class="w-full resize-none h-32 border p-2 rounded" placeholder="Enter description" formControlName="description"></textarea>
+  </div>
+  <button type="submit" class="p-2 bg-blue-400">Create</button>
+</form>

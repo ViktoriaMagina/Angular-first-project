@@ -1,0 +1,13 @@
+
+<div class="px-6 py-4 border rounded mb-2 flex flex-col items-center">
+  <img class="mb-2" width="100px" height="100px" src="{{product.image}}" alt="{{ product.title }}">
+  <h2 class="text-lg mb-2">{{ product.title }}</h2>
+  <div class="flex flex-row items-center mb-2">
+    <p class="font-bold mr-4">{{ product.price | currency: "Rub " }}</p>
+    <p *ngIf="product.rating" class="font-bold">rating: {{ product.rating.rate | number: ".2-4" }}</p>
+  </div>
+  <button (click)="isOpenDescription = !isOpenDescription" [ngClass]="{ 'bg-yellow-400' : isOpenDescription, 'bg-green-400' : !isOpenDescription}" class="border px-4 py-2">{{isOpenDescription? "Hide Details" : "More Details"}}</button>
+  <p *ngIf="isOpenDescription" class="text-center mb-2">
+    {{ product.description }}
+  </p>
+</div>
